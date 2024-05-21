@@ -1,0 +1,11 @@
+<%- include("partials/header.ejs") %>
+<div class="content">
+<form action="/edit/<%= post.id %>" method="post">
+    <input class="feedback-input" type="text" name="name" value="<%= post.name %>">
+    <input class="feedback-input" type="text" name="title" value="<%= post.title %>">
+    <textarea class="feedback-input" name="postData"><%= post.postData %></textarea>
+    <input class="feedback-input" type="text" name="url" value="<%= post.url %>">
+    <button type="submit">Update</button>
+</form>
+</div>
+<%- include("partials/footer.ejs") %>

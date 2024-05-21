@@ -1,0 +1,142 @@
+<%- include("partials/header.ejs") %>
+
+<div class="content">
+  <% posts.forEach(post => { %>
+    <div class="post">
+      <h2><%= post.title %></h2>
+      <p><%= post.postData %></p>
+      <p>Posted by <%= post.name %> on <%= post.createdAt.toDateString() %></p>
+      <a href="/edit/<%= post.id %>">Edit</a>|
+      <a href="/delete/<%= post.id %>">Delete</a>
+      <!-- <form action="/delete/<%= post.id %>" method="get">
+          <button type="submit">Delete</button>
+      </form> -->
+    </div>
+  <% }); %>
+
+  <div class="weather_content">
+    <p class="weather" style="color: rgb(24, 10, 10);">Weather Information:</p>
+    <p style="color: rgb(24, 10, 10);">Temperature: <span style="color: #ffc107;"><%= weatherData?.main?.temp %></span> </p>
+    <p style="color: rgb(24, 10, 10);">Description: <span style="color: #ffc107;"><%= weatherData?.weather[0]?.description %></span></p>
+    <p><img src="https://openweathermap.org/img/w/<%= weatherData?.weather[0]?.icon %>.png" /></p>
+    <!-- You can add more weather data properties here -->
+  </div>
+    
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary-emphasis">Motivation</strong>
+            <h3 class="mb-0">Embracing Change: Navigating Life's Transitions with Resilience</h3>
+            <div class="mb-1 text-body-secondary">March 26</div>
+            <p class="card-text mb-auto">Change is an inevitable part of life, yet it's often met with resistance and uncertainty. Whether it's transitioning to a new job, moving to a different city, or...</p>
+            <a href="/post" class="icon-link gap-1 icon-link-hover stretched-link">
+              Continue reading
+            </a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img class="" src="images/man-walking-dog.jpg" height="250" width="200" alt="man walking dog">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-success-emphasis">Nature</strong>
+            <h3 class="mb-0">Exploring the Profound Beauty and Importance of Nature</h3>
+            <div class="mb-1 text-body-secondary">March 29</div>
+            <p class="mb-auto">Nature, with its infinite complexities and breathtaking beauty, has captivated humanity since the dawn of civilization. It encompasses everything from the smallest insect to the grandest mountain...</p>
+            <a href="/post" class="icon-link gap-1 icon-link-hover stretched-link">
+              Continue reading
+              <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img class="" src="images/nature.jpeg" height="250" width="200" alt="nature">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">📢 Join Our Community! Subscribe to Stay Updated.</h1>
+        <p class="col-lg-10 fs-4">Don't miss out on the latest updates, exclusive offers, and insider insights. Sign up now to become part of our growing community of readers and receive regular updates delivered straight to your inbox.</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+          <hr class="my-4">
+          <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+        </form>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Existing content of your index.ejs -->
+      <div class="blockchain-data">
+        <h2>Blockchain Data (BTC-USD)</h2>
+        <div class="order-book">
+          <div class="bids">
+            <h3>Bids</h3>
+            <ul>
+              <% blockchainData.bids.forEach(bid => { %>
+                <li>USD: <%= bid.px %>, BTC: <%= bid.qty %></li>
+              <% }) %>
+            </ul>
+          </div>
+          <div class="asks">
+            <h3>Asks</h3>
+            <ul>
+              <% blockchainData.asks.forEach(ask => { %>
+                <li>USD: <%= ask.px %>, BTC: <%= ask.qty %></li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="content">
+      <h1>Welcome To Blog!</h1>
+      <p>
+        We're thrilled to have you here as part of our community of readers and enthusiasts. Whether you're a seasoned
+        veteran in our field or just beginning to explore, our blog aims to provide valuable insights, inspiration, 
+        and resources to enhance your journey. From informative articles to engaging stories, we're committed to 
+        delivering content that enriches your knowledge and fuels your passion.
+      </p>
+      <p>
+        At Blog, we believe in the power of sharing ideas and experiences. Our blog serves as a platform for meaningful
+        discussions, where diverse perspectives converge and new connections are forged. We encourage you to actively 
+        participate by leaving comments, asking questions, and sharing your own insights. Together, we can create a 
+        vibrant and supportive community where learning never stops and creativity flourishes.
+      </p>
+      <p>
+        As you navigate through our blog, you'll discover a wide range of topics covering Personallife experiences, inspiration stories, real life events, technological evolution, world politice, travels etc. 
+        Whether you're seeking practical advice, thought-provoking analysis, or simply a 
+        dose of inspiration, we've got you covered. Our team is dedicated to curating content that resonates with your 
+        interests and addresses your needs, ensuring that each visit leaves you informed, inspired, and empowered.
+      </p>
+      <p>
+        Thank you for choosing to embark on this journey with us. We're excited to embark on this adventure together and 
+        look forward to sharing valuable insights, fostering meaningful connections, and exploring new horizons with you. 
+        So sit back, relax, and let the exploration begin!
+      </p>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") %>

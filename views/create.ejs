@@ -1,0 +1,13 @@
+ <%- include("partials/header.ejs") %>
+<div class="content">
+    <form class="create" action="/submit" method="post">
+        <input name="name" type="text" class="feedback-input" placeholder="Author's Name:" />
+        <input name="title" type="text" class="feedback-input" placeholder="Title of Post:" />
+        <textarea name="postData" type="text" class="feedback-input" placeholder="Post:"></textarea>
+        <label for="upload">Enter image URL:</label><br>
+        <input name="url" type="text" class="feedback-input" placeholder="Image"><br>
+        <input type="submit" value="Publish">    
+    </form>
+</div>
+
+<%- include("partials/footer.ejs") %>
